@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+		<title>Calculadora IMC</title>
+		<link rel="stylesheet" href="/css/style.css">
+	    <meta charset="utf-8">
+      </head>
+      <body> 
+		  
+	<div class="calculator">
+	      <h1 class="title">Calculadora IMC</h1>
+	      <form id="calculateForm">
+		<div class="content">
+		    <label id="titleName">Nome</label>
+		    <input type="text" id="name" autocomplete="off" >
+		</div>
+		<div class="content">
+		    <label id="titleHeight">Altura <span>(Metros)</span></label>
+		    <input type="number" id="height" step=".01" maxlength="5" min="0" max="2">
+		</div>
+		<div class="content">
+		    <label id="titleWeight">Peso <span>(Kg)</span></label>
+		    <input type="number" id="weight" step=".01">
+		</div>
+		<button id="calculate" type="submit">Calcular</button>
+		<button id="resetButton" class="resetButton" type="button" onclick="recarregarPagina()">Calcular Novamente</button>
+			  </form>
+			  
+			<div class="errorInput" id="errorInput">
+				<img src="/images/error.svg" alt="">
+			</div>
+
+			<div class="result" id="result"></div>
+			
+			<div class="message" id="message"></div>
+
+			<table id="table-calc" class="table-calc" cellspacing="0">
+				<tbody>						
+					<tr>
+						<td><b>Classificação</b></td>
+						<td><b>IMC</b></td>
+					</tr>
+					
+					<tr id="abaixo">
+						<td>Abaixo do Peso</td>
+						<td>Abaixo de 18,5</td>
+					</tr>
+
+					<tr id="normal">
+						<td>Peso Normal</td>
+						<td>18,5 - 24,9</td>
+					</tr>
+
+					<tr id="sobrepeso">
+						<td>Sobrepeso</td>
+						<td>25 - 29,9</td>
+					</tr>
+
+					<tr id="obeso1">
+						<td>Obesidade Grau I</td>
+						<td>30 - 34,9</td>
+					</tr>
+
+					<tr id="obeso2">
+						<td>Obesidade Grau II</td>
+						<td>35 - 39,9</td>
+					</tr>
+
+					<tr id="obeso3">
+						<td>Obesidade Grau III</td>
+						<td>Maior ou igual 40</td>
+					</tr>
+					
+	
+				</tbody>
+			</table>
+		</div>
+	<script src="/js/bmi.js"></script>
+	<script src="/js/vanilla-masker.js"></script>
+
+	<script>
+		VMasker(document.getElementById("height")).maskMoney({separator: '.'});
+		VMasker(document.getElementById("weight")).maskMoney({separator: '.'});
+	</script>
+  </body>
+</html>
